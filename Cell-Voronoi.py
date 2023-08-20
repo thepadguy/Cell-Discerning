@@ -47,23 +47,6 @@ def separate_histological_stains(image):
 def PolyArea(x,y):
     return 0.5*np.abs(np.dot(x,np.roll(y,1))-np.dot(y,np.roll(x,1)))
 
-def irregularity(arr):
-    L_all = 0
-    arr = [j for j in arr if not(np.isnan(j))]
-    for i in range(0, len(arr)-1):
-        dist = np.sqrt(1+(arr[i]-arr[i+1])**2)
-        L_all += dist
-    I = L_all/(len(arr)-1)
-    return I
-
-def rmsd(arr):
-    Rmsd = 0
-    arr_mean = np.mean(arr)
-    elements = len(arr)
-    for i in arr:
-        Rmsd += ((arr_mean - i)**2)/elements
-    return np.sqrt(Rmsd)
-
 def pick_subplot(event):
     global chosen_subplot
     global index
@@ -101,7 +84,7 @@ if channels > 3:
     print("[-] Image has {c} channels, reducing them to 3".format(c=channels))
     grans = grans[:,:,:3]
     fig, ax = plt.subplots(); fig.canvas.manager.set_window_title("3-channel image")
-    ski.io.imshow(grans); plt.show()
+    ski.io.imshow(grans); ax.axis('off'); plt.show()
 fig, ax = plt.subplots(); fig.canvas.manager.set_window_title("Original image")
 ax.imshow(grans); ax.axis('off'); plt.show()
 #separate hematoxylin (nucleus) stain
@@ -176,7 +159,6 @@ elif len(local_minima_index) == 0:  #to cover edge case
     print("[-] Could not find peaks, using NumPy minimum identification instead, only 1 cutoff.")
     minimum = skewenesses_sum.index(np.nanmin(skewenesses_sum))
     local_minima_index = [minimum]
-#print("local_minima_index:" + str(local_minima_index))
 cutoffs = [areas.max() - i*((areas.max()-areas.min())/1000) for i in local_minima_index]
 print("[i] COEFFICIENTS ARE: "+str(local_minima_index))
 print("[i] CUTOFFS ARE: "+str(cutoffs))
@@ -216,7 +198,6 @@ else:   #ax is not subscriptable if it has length of 1
     plt.show()
     filtered_contours = f_c_s[chosen_subplot]
 
-#exit()
 #some contours may contain other contours, let's use a crude way to filter them
 non_nested_contours = []
 con1 = filtered_contours.copy()  #don't alter original contours
