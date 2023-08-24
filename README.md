@@ -28,6 +28,7 @@ to generate a Voronoi diagram which it superimposes on top of the input image.
 ## Required python 3.x modules
 * matplotlib (pyplot and mplPath)
 * scikit-image
+* scikit-learn
 * scipy (spatial, stats, signal)
 * numpy
 * tqdm
