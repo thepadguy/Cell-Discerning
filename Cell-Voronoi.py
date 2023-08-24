@@ -196,6 +196,7 @@ else:   #ax is not subscriptable if it has length of 1
     ax.axis('off')
     fig.tight_layout()
     plt.show()
+    chosen_subplot = 0
     filtered_contours = f_c_s[chosen_subplot]
 
 #some contours may contain other contours, let's use a crude way to filter them
