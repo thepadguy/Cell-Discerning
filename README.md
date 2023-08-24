@@ -1,5 +1,14 @@
 # Cell-Discerning
 Python program that identifies hematoxylin stained nuclei on a png image and uses them to create a Voronoi diagram.
+## Update
+Now Cell-Discerning contains CellVoronoiClusters.py, which uses the sklearn OPTICS algorithm to cluster the voronoi
+regions created (in CellVoronoiClusters) according to their area, eccentricity, perimeter, pearson correlation coefficient
+(and p-value) and Shannon entropy (entropy is specifically calculated with a 0 mask on the rest of the image). In order
+to calculate the minimum samples that define a cluster, a maximization routine of the silhouette measure is used from 2
+sample to half the regions.
+Note that for CellVoronoiClusters you may use "one contour subplot less" than for Cell-Voronoi due to sensitivity and
+the features themselves.
+Also, no running-images are uploaded for CellVoronoiClusters.py since they are pretty much the same.
 
 ## How to use
 Make sure that you have all the necessary python modules already installed and then simply follow the on-screen instructions.
