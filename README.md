@@ -11,15 +11,10 @@ the features themselves.
 Also, no running-images are uploaded for CellVoronoiClusters.py since they are pretty much the same.
 
 The new update includes Cell-Neighbours.py, which finds contours like the above programs. Then it creates a distance kernel
-of m*n dimensions, specified by the user, where each kernel entry is equal to 1/(distance to center of kernel).
+of m*n dimensions, specified by the user, where each kernel entry is equal to 1 / (distance to center of kernel).
 A 3*3 distance kernel would be the following:
-$$
-\left(\begin{array}{cc}
-0.70710678 & 1 & 0.70710678\\
-1 & 0 & 1\\
-0.70710678 & 1 & 0.70710678
-\end{array}\right)
-$$
+\
+[[0.70710678, 1, 0.70710678], [1,0,1], [0.70710678, 1, 0.70710678]]\
 This kernel convolutes an image where everything is black except what is inside the contours.
 The resulting one-channel image is passed as the alpha channel to the original image, this way areas of high density are brighter
 than areas of low density.
