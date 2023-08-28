@@ -12,7 +12,7 @@ Also, no running-images are uploaded for CellVoronoiClusters.py since they are p
 
 The new update includes Cell-Neighbours.py, which finds contours like the above programs. Then it creates a distance kernel
 of m*n dimensions, specified by the user, where each kernel entry is equal to 1 / (distance to center of kernel).
-A 3*3 distance kernel would be the following:
+A 3x3 distance kernel would be the following:
 \
 [[0.70710678, 1, 0.70710678], [1,0,1], [0.70710678, 1, 0.70710678]]\
 This kernel convolutes an image where everything is black except what is inside the contours.
