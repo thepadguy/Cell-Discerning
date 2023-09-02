@@ -1,4 +1,4 @@
-# Cell-Discerning
+# Python-Tissue-Cell-Analysis
 Collection of Python scripts that analyse .png histological images. (Coded for use with H&E stains however you can modify to suit your needs).
 ### Contains
 * Cell-Voronoi.py which creates a Voronoi plot with the centroids of the nuclei as input points.
@@ -47,6 +47,8 @@ If used with more than one samples (provided they don't all give the same fN & f
 * tqdm
 * random (comes with python)
 * seaborn
+### Usage notice
+If you use RMA.py results in a publication please cite both the forementioned paper and this GitHub repository.
 
 ## How to use
 Make sure that you have all the necessary python modules already installed and then simply follow the on-screen instructions.
